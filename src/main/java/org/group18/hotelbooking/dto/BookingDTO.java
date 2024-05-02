@@ -1,7 +1,5 @@
 package org.group18.hotelbooking.dto;
 
-
-
 import java.time.LocalDate;
 
 public class BookingDTO {

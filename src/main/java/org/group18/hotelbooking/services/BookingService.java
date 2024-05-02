@@ -1,33 +1,18 @@
 package org.group18.hotelbooking.services;
 
-
-import org.group18.hotelbooking.models.Booking;
-import org.group18.hotelbooking.repository.BookingRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.group18.hotelbooking.dto.BookingDTO;
 
 import java.util.List;
-import java.util.Optional;
 
-@Service
-public class BookingService {
+public interface BookingService {
 
-    @Autowired
-    private BookingRepository bookingRepository;
+    BookingDTO bookRoom(BookingDTO bookingDTO);
 
-    public List<Booking> getAllBookings() {
-        return bookingRepository.findAll();
-    }
+    BookingDTO modifyBooking(Long bookingId, BookingDTO updatedBookingDTO);
 
-    public Optional<Booking> getBookingById(Long bookingId) {
-        return bookingRepository.findById(bookingId);
-    }
+    void cancelBooking(Long bookingId);
 
-    public Booking saveBooking(Booking booking) {
-        return bookingRepository.save(booking);
-    }
+    List<BookingDTO> getAllBookingsForCustomer(Long customerId);
 
-    public void deleteBooking(Long bookingId) {
-        bookingRepository.deleteById(bookingId);
-    }
+    List<BookingDTO> getAllBookingsForRoom(Long roomId);
 }

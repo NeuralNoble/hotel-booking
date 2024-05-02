@@ -48,9 +48,12 @@ public class RoomController {
         }
     }
 
-    @PutMapping("/{roomId}/availability")
-    public ResponseEntity<Void> updateRoomAvailability(@PathVariable Long roomId, @RequestParam boolean availability) {
+    @PostMapping("/{roomId}/availability")
+    public ResponseEntity<Void> updateRoomAvailability(@PathVariable Long roomId, @RequestBody Map<String, Boolean> requestBody) {
+        boolean availability = requestBody.getOrDefault("availability", false);
+
         roomService.updateRoomAvailability(roomId, availability);
+
         return ResponseEntity.noContent().build();
     }
 

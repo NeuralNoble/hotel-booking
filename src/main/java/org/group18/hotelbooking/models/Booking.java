@@ -25,6 +25,7 @@ public class Booking {
     // Constructors, Getters, and Setters
 
     public Booking() {
+        // Default constructor
     }
 
     public Booking(Customer customer, Room room, LocalDate checkInDate, LocalDate checkOutDate, double totalPrice) {
