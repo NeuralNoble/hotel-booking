@@ -1,6 +1,5 @@
 package org.group18.hotelbooking.models;
 
-
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
@@ -26,7 +25,6 @@ public class Booking {
     // Constructors, Getters, and Setters
 
     public Booking() {
-        // Default constructor
     }
 
     public Booking(Customer customer, Room room, LocalDate checkInDate, LocalDate checkOutDate, double totalPrice) {

@@ -1,16 +1,13 @@
 package org.group18.hotelbooking.models;
 
-
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
+import java.util.List;
+
 @Getter
+@Setter
 @Entity
 public class Customer {
 
@@ -19,17 +16,13 @@ public class Customer {
     private Long customerId;
 
     private String name;
-
     private String email;
-
     private String phoneNumber;
-
     private String address;
-
-
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<Booking> bookings;
 
     public Customer() {
-
     }
 
     public Customer(String name, String email, String phoneNumber, String address) {
@@ -38,5 +31,4 @@ public class Customer {
         this.phoneNumber = phoneNumber;
         this.address = address;
     }
-
 }
